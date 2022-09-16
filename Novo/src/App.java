@@ -10,6 +10,7 @@ public class App {
 
         for(int i = 0; i < 3; i++){
             String nomeAluno = JOptionPane.showInputDialog(null,"Insirao nome do aluno");
+            String emailAluno = JOptionPane.showInputDialog(null, "Insira o e-mail do aluno");
             c1.realizarM(new Aluno(nomeAluno, null));
         }
 
