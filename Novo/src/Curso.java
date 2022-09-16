@@ -8,6 +8,7 @@ public class Curso {
     String nivel;
     Professor professor;
     List<Aluno> aluno;
+    List<Aluno> email;
 
     public Curso(String Nome, String nivel, int Carga_horária, Professor professor){
         this.Nome = Nome;
@@ -19,6 +20,7 @@ public class Curso {
 
     public void realizarM(Aluno aluno){
         this.aluno.add(aluno);
+        
     }
     public int getQAM(){
         return this.aluno.size();
@@ -49,4 +51,5 @@ public class Curso {
     public List<Aluno> getAluno(){
         return aluno;
     }
+
 }

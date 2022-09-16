@@ -11,8 +11,12 @@ public class Aluno {
         return this.Nome;
     }
 
+    public String getEmail(){
+        return this.Email;
+    }
+
   @Override
   public String toString() {
-      return "Aluno [nome=" + getNome() + "]";
+      return "Aluno = " + getNome() + " E-mail = " + getEmail();
   }  
 }
