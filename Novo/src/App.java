@@ -31,16 +31,19 @@ public class App {
         System.out.println(cursos.size());
     }
     private static void exibeAlunos() {
-        
+        String info = "";
+        for (Curso curso : cursos) {
+            for (Aluno aluno : curso.getAluno()) {
+                info = info + " - " + aluno.getNome() + "\n" + aluno.getEmail() + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
     }
 
     private static void exibeCursos() {
         String info = "";
         for (Curso curso : cursos) {
-            info = info + curso.getNome() + " ch: " + curso.getCarga_Horária() + "\n";
-            for (Aluno aluno : curso.getAluno()) {
-                info = info + " - " + aluno.getNome() + "\n";
-            }
+            info = info + curso.getNome() + " ch: " + curso.getCarga_Horária() + " Nível: " + curso.getNivel() + "\n";
         }
         JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
     }
