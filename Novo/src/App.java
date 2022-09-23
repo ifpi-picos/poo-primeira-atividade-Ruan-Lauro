@@ -1,20 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
 
 public class App {
 
     static List<Curso> cursos = new ArrayList<>();
     public static void main(String[] args) throws Exception {
-        Professor p1 = new Professor("Steve");
+        Professor p1 = new Professor(JOptionPane.showInputDialog(null, "Qual é o nome do professor? "));
         List<Integer> opcoes = new ArrayList<>();
-        opcoes.add(6);
-        opcoes.add(5);
-        opcoes.add(4);
-        opcoes.add(3);
-        opcoes.add(2);
         opcoes.add(1);
+        opcoes.add(2);
+        opcoes.add(3);
+        opcoes.add(4);
+        opcoes.add(5);
+        opcoes.add(6);
 
         int opcaoSelecionad = 1;
         while (opcoes.get(opcaoSelecionad) != 6) {
@@ -32,6 +31,7 @@ public class App {
         System.out.println(cursos.size());
     }
     private static void exibeAlunos() {
+        
     }
 
     private static void exibeCursos() {
@@ -48,7 +48,7 @@ public class App {
     private static int exibeMenu(List<Integer> opcoes) {
         Object[] optionsArray = opcoes.toArray();
         int opcaoSelecionad = JOptionPane.showOptionDialog(null,
-                "1. Cadastrar curso \n2. Cadastrar aluno \n3. Exibir cursos \n 4.Exibir alunos \n5. Certificado \n6. Encerrar",
+                "1. Cadastrar curso \n2. Cadastrar aluno \n3. Exibir cursos \n4 .Exibir alunos \n5. Certificado \n6. Encerrar",
                 "Selecione",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 optionsArray, null);
@@ -66,19 +66,24 @@ public class App {
                 "Cursos",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 optionsArray, null);
-
-        String nomeCursoSelecionado = opcoes.get(opcaoSelecionada);
-        String nomeAluno = JOptionPane.showInputDialog("Informe o nome do aluno");
-        String emailAluno = JOptionPane.showInputDialog("Informe o email do aluno");
-
-        Aluno novoAluno = new Aluno(nomeAluno, emailAluno);
-
-        for (Curso curso : cursos) {
-            if (curso.getNome().equals(nomeCursoSelecionado)) {
-                curso.realizarM(novoAluno);
-                break;
+        for(int x = 0; x < 1; x++){
+            String nomeCursoSelecionado = opcoes.get(opcaoSelecionada);
+            String nomeAluno = JOptionPane.showInputDialog("Informe o nome do aluno");
+            int confirmacao_de_nome_do_aluno = JOptionPane.showConfirmDialog(null, "O nome do aluno é " + nomeAluno +"?");
+            if(confirmacao_de_nome_do_aluno == 0){
+                String emailAluno = JOptionPane.showInputDialog("Informe o email do aluno");
+                Aluno novoAluno = new Aluno(nomeAluno, emailAluno);
+                for (Curso curso : cursos) {
+                    if (curso.getNome().equals(nomeCursoSelecionado)) {
+                        curso.realizarM(novoAluno);
+                        break;
+                }
             }
+            break;
+        }else if(confirmacao_de_nome_do_aluno == 1){}
+            x--;
         }
+        
     }
 
     private static void cadastrarCurso(Professor p1) {
@@ -89,5 +94,6 @@ public class App {
         cursos.add(novoCurso);
     }
 
+    
     }
     
