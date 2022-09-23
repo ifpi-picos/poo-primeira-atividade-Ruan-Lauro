@@ -27,6 +27,9 @@ public class App {
             } else if (opcoes.get(opcaoSelecionad) == 4) {
                 exibeAlunos();
             }
+            else if (opcoes.get(opcaoSelecionad) == 5){
+                exibeCertificado();
+            }
         }
         System.out.println(cursos.size());
     }
@@ -38,6 +41,10 @@ public class App {
             }
         }
         JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    private static void exibeCertificado(){
+        
     }
 
     private static void exibeCursos() {
